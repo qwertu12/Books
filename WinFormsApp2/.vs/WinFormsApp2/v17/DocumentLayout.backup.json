@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|c:\\users\\vadim\\source\\repos\\winformsapp2\\winformsapp2\\bookeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\bookeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|c:\\users\\vadim\\source\\repos\\winformsapp2\\winformsapp2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|c:\\users\\vadim\\source\\repos\\winformsapp2\\winformsapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\winformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0465E3A6-A7BA-466C-B89B-26853AD9E8B3}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\BookEditForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\BookEditForm.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\BookEditForm.cs*",
+              "RelativeToolTip": "WinFormsApp2\\BookEditForm.cs*",
+              "ViewState": "AgIAAF0AAAAAAAAAAADgv2gAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T05:16:50.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\MainForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\MainForm.cs",
+              "RelativeToolTip": "WinFormsApp2\\MainForm.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAMwHYAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T05:16:13.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\Program.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\Program.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\Program.cs",
+              "RelativeToolTip": "WinFormsApp2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T05:14:55.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\Form1.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\Form1.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\WinFormsApp2\\WinFormsApp2\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "WinFormsApp2\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T05:14:39.687Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
