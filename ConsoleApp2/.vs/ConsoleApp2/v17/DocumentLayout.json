@@ -1,0 +1,82 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Vadim\\source\\repos\\ConsoleApp2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1CA279-1488-D700-65C5-5AE2B878FA47}|..\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj|c:\\users\\vadim\\source\\repos\\classlibrary1\\classlibrary1\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1CA279-1488-D700-65C5-5AE2B878FA47}|..\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj|c:\\users\\vadim\\source\\repos\\classlibrary1\\classlibrary1\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1CA279-1488-D700-65C5-5AE2B878FA47}|..\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj|c:\\users\\vadim\\source\\repos\\classlibrary1\\classlibrary1\\abstractions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D637FA6-D987-4FB5-BEC7-1CA787FC2041}|ConsoleApp2\\ConsoleApp2.csproj|c:\\users\\vadim\\source\\repos\\consoleapp2\\consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D637FA6-D987-4FB5-BEC7-1CA787FC2041}|ConsoleApp2\\ConsoleApp2.csproj|solutionrelative:consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Services.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\ClassLibrary1\\ClassLibrary1\\Services.cs",
+              "RelativeDocumentMoniker": "..\\ClassLibrary1\\ClassLibrary1\\Services.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\ClassLibrary1\\ClassLibrary1\\Services.cs",
+              "RelativeToolTip": "..\\ClassLibrary1\\ClassLibrary1\\Services.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T07:14:49.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\ClassLibrary1\\ClassLibrary1\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\ClassLibrary1\\ClassLibrary1\\Class1.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\ClassLibrary1\\ClassLibrary1\\Class1.cs",
+              "RelativeToolTip": "..\\ClassLibrary1\\ClassLibrary1\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T07:14:48.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Abstractions.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\ClassLibrary1\\ClassLibrary1\\Abstractions.cs",
+              "RelativeDocumentMoniker": "..\\ClassLibrary1\\ClassLibrary1\\Abstractions.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\ClassLibrary1\\ClassLibrary1\\Abstractions.cs",
+              "RelativeToolTip": "..\\ClassLibrary1\\ClassLibrary1\\Abstractions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T07:14:46.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\source\\repos\\ConsoleApp2\\ConsoleApp2\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp2\\Program.cs",
+              "ToolTip": "C:\\Users\\Vadim\\source\\repos\\ConsoleApp2\\ConsoleApp2\\Program.cs",
+              "RelativeToolTip": "ConsoleApp2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-14T05:13:50.013Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
