@@ -8,15 +8,15 @@
     ".NETCoreApp,Version=v8.0": {
       "ConsoleApp2/1.0.0": {
         "dependencies": {
-          "ClassLibrary1": "1.0.0"
+          "Domain": "1.0.0"
         },
         "runtime": {
           "ConsoleApp2.dll": {}
         }
       },
-      "ClassLibrary1/1.0.0": {
+      "Domain/1.0.0": {
         "runtime": {
-          "ClassLibrary1.dll": {
+          "Domain.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -30,7 +30,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ClassLibrary1/1.0.0": {
+    "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

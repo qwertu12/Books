@@ -17,13 +17,12 @@
   "libraries": {
     "Domain/1.0.0": {
       "type": "project",
-      "path": "../../../Domain/Domain.csproj",
-      "msbuildProject": "../../../Domain/Domain.csproj"
+      "path": "../../Domain/Domain/Domain.csproj",
+      "msbuildProject": "../../Domain/Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj",
       "Domain >= 1.0.0"
     ]
   },
@@ -59,11 +58,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj"
-            },
-            "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj": {
-              "projectPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj"
+            "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj"
             }
           }
         }
@@ -105,16 +101,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Не удалось найти проект \"C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
-      "libraryId": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }

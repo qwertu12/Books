@@ -1,20 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iC7U1EomhiE=",
-  "success": false,
+  "dgSpecHash": "lrtp2M9MBPA=",
+  "success": true,
   "projectFilePath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Не удалось найти проект \"C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
-      "projectPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
-      "filePath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
-      "libraryId": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

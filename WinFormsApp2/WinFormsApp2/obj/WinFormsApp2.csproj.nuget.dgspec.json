@@ -4,14 +4,14 @@
     "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj": {
+    "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Vadim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vadim\\source\\repos\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,11 +97,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Vadim\\source\\repos\\Domain\\Domain.csproj"
-              },
-              "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj": {
-                "projectPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\ClassLibrary1\\ClassLibrary1\\ClassLibrary1.csproj"
+              "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Vadim\\source\\repos\\LibraryBook\\Domain\\Domain\\Domain.csproj"
               }
             }
           }
