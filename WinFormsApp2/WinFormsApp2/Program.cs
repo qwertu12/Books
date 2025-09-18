@@ -1,18 +1,19 @@
-using Domain.Services;
 using System;
 using System.Windows.Forms;
+using Domain.Services;
 using WinFormsApp.Forms;
 
-namespace WinFormsApp2;
-
-internal static class Program
+namespace WinFormsApp2
 {
-    [STAThread]
-    static void Main()
+    /// <summary>Точка входа WinForms.</summary>
+    internal static class Program
     {
-        ApplicationConfiguration.Initialize();
-        var logic = new BookLogic();
-        Application.Run(new MainForm(logic));
-
+        /// <summary>STA-вход.</summary>
+        [STAThread]
+        private static void Main()
+        {
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainForm(new Logic()));
+        }
     }
 }

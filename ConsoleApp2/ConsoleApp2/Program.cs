@@ -4,204 +4,141 @@ using Domain.Abstractions;
 using Domain.Models;
 using Domain.Services;
 
-IBookLogic logic = new BookLogic();
-
-// демоданные
-logic.Create(new Book { Title = "CLR via C#", Author = "Jeffrey Richter", Genre = "Programming", Year = 2012, Pages = 900 });
-logic.Create(new Book { Title = "Clean Code", Author = "Robert C. Martin", Genre = "Programming", Year = 2008, Pages = 464, IsRead = true });
-logic.Create(new Book { Title = "Dune", Author = "Frank Herbert", Genre = "Sci-Fi", Year = 1965, Pages = 592 });
-
-while (true)
+namespace ConsoleApp
 {
-    Console.WriteLine("""
-    1) Список книг
-    2) Добавить
-    3) Изменить
-    4) Удалить
-    5) Группировка по жанрам
-    6) Поиск по автору
-    0) Выход
-    """);
-
-    var key = ReadMenuChoice(0, 6);
-
-    switch (key)
+    /// <summary>Консоль для работы с книгами (CRUD + группы/поиск).</summary>
+    internal static class Program
     {
-        case 1:
-            if (logic.ReadAll().Count == 0) { Console.WriteLine("Список пуст."); break; }
-            foreach (var b in logic.ReadAll()) Console.WriteLine($"{b.Id} :: {b}");
-            break;
+        /// <summary>Входная точка.</summary>
+        private static void Main()
+        {
+            IBookLogic logic = new Logic();
+            // демо-данные
+            logic.Create(new Book { Title = "CLR via C#", Author = "Jeffrey Richter", Genre = "Programming", Year = 2012, Pages = 900 });
+            logic.Create(new Book { Title = "Clean Code", Author = "Robert C. Martin", Genre = "Programming", Year = 2008, Pages = 464, IsRead = true });
+            logic.Create(new Book { Title = "Dune", Author = "Frank Herbert", Genre = "Sci-Fi", Year = 1965, Pages = 592 });
 
-        case 2:
-            var nb = InputBook();
-            logic.Create(nb);
-            Console.WriteLine("Добавлено.");
-            break;
-
-        case 3:
+            while (true)
             {
-                var id = ReadExistingId(logic, "Id книги для изменения: ");
-                var book = logic.Read(id)!;
-                var edited = EditBook(book);
-                logic.Update(edited);
-                Console.WriteLine("Сохранено.");
-                break;
-            }
-
-        case 4:
-            {
-                var id = ReadExistingId(logic, "Id книги для удаления: ");
-                logic.Delete(id);
-                Console.WriteLine("Удалено.");
-                break;
-            }
-
-        case 5:
-            {
-                var groups = logic.GroupByGenre();
-                if (groups.Count == 0) { Console.WriteLine("Пусто."); break; }
-                foreach (var kv in groups)
+                Console.WriteLine("1) Список  2) Добавить  3) Изменить  4) Удалить  5) Группы  6) Поиск  0) Выход");
+                switch (ReadInt("Выбор: ", 0, 6))
                 {
-                    Console.WriteLine($"[{kv.Key}]");
-                    foreach (var b in kv.Value) Console.WriteLine("  - " + b);
+                    case 1:
+                        var all = logic.ReadAll();
+                        Console.WriteLine(all.Count == 0 ? "Список пуст." : string.Join(Environment.NewLine, all.Select(b => $"{b.Id} :: {b}")));
+                        break;
+                    case 2:
+                        Try(() => { var created = logic.Create(InputBook()); Console.WriteLine($"Добавлено. Id={created.Id}"); });
+                        break;
+                    case 3:
+                        Try(() =>
+                        {
+                            var id = ReadExistingId(logic, "Id для изменения: ");
+                            var edited = EditBook(logic.Read(id)!);
+                            Console.WriteLine(logic.Update(edited) ? "Сохранено." : "Не найдено.");
+                        });
+                        break;
+                    case 4:
+                        var delId = ReadExistingId(logic, "Id для удаления: ");
+                        Console.WriteLine(logic.Delete(delId) ? "Удалено." : "Не найдено.");
+                        break;
+                    case 5:
+                        var groups = logic.GroupByGenre();
+                        Console.WriteLine(groups.Count == 0 ? "Пусто." :
+                            string.Join(Environment.NewLine, groups.Select(g => $"[{g.Key}] {g.Value.Count} шт.")));
+                        break;
+                    case 6:
+                        var q = ReadString("Автор (часть, можно пусто): ", true);
+                        var res = logic.FindByAuthor(q);
+                        Console.WriteLine(res.Count == 0 ? "Ничего не найдено." : string.Join(Environment.NewLine, res));
+                        break;
+                    case 0: return;
                 }
-                break;
+                Console.WriteLine();
             }
+        }
 
-        case 6:
+        /// <summary>Безопасный вызов действия с выводом сообщения об ошибке.</summary>
+        private static void Try(Action action)
+        {
+            try { action(); } catch (Exception ex) { Console.WriteLine("Ошибка: " + ex.Message); }
+        }
+
+        /// <summary>Чтение Int с диапазоном.</summary>
+        private static int ReadInt(string prompt, int? min = null, int? max = null)
+        {
+            while (true)
             {
-                var q = ReadString("Автор (часть, можно пусто): ", allowEmpty: true);
-                var res = logic.FindByAuthor(q);
-                Console.WriteLine(res.Count == 0 ? "Ничего не найдено." : string.Join(Environment.NewLine, res.Select(b => b.ToString())));
-                break;
+                Console.Write(prompt);
+                if (int.TryParse(Console.ReadLine(), out var v) &&
+                    (!min.HasValue || v >= min) && (!max.HasValue || v <= max)) return v;
+                Console.WriteLine($"Введите целое число{(min.HasValue || max.HasValue ? $" [{min ?? int.MinValue}; {max ?? int.MaxValue}]" : "")}.");
             }
-
-        case 0:
-            return;
+        }
+        /// <summary>Чтение строки (непустой, если <paramref name="allowEmpty"/> = false).</summary>
+        private static string ReadString(string prompt, bool allowEmpty = false)
+        {
+            while (true)
+            {
+                Console.Write(prompt);
+                var s = (Console.ReadLine() ?? "").Trim();
+                if (allowEmpty || !string.IsNullOrWhiteSpace(s)) return s;
+                Console.WriteLine("Поле не может быть пустым.");
+            }
+        }
+        /// <summary>Строка без цифр (для автора/жанра).</summary>
+        private static string ReadTextNoDigits(string prompt, bool allowEmpty = false)
+        {
+            while (true)
+            {
+                var s = ReadString(prompt, allowEmpty);
+                if (allowEmpty && s == "") return s;
+                if (!s.Any(char.IsDigit)) return s;
+                Console.WriteLine("Текст не должен содержать цифр.");
+            }
+        }
+        /// <summary>Да/нет.</summary>
+        private static bool ReadYesNo(string prompt, bool? def = null)
+        {
+            while (true)
+            {
+                Console.Write($"{prompt}{(def is null ? " (y/n): " : def.Value ? " (Y/n): " : " (y/N): ")}");
+                var s = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
+                if (string.IsNullOrEmpty(s) && def is not null) return def.Value;
+                if (s is "y" or "д") return true; if (s is "n" or "н") return false;
+            }
+        }
+        /// <summary>Существующий Id.</summary>
+        private static int ReadExistingId(IBookLogic logic, string prompt)
+        {
+            while (true) { var id = ReadInt(prompt, 1, null); if (logic.Read(id) is not null) return id; Console.WriteLine("Не найдено."); }
+        }
+        /// <summary>Ввод новой книги.</summary>
+        private static Book InputBook()
+        {
+            return new Book
+            {
+                Title = ReadString("Название: "),
+                Author = ReadTextNoDigits("Автор: "),
+                Genre = ReadTextNoDigits("Жанр: ", true),
+                Year = ReadInt("Год (0..3000): ", 0, 3000),
+                Pages = ReadInt("Страниц (>0): ", 1, null),
+                IsRead = ReadYesNo("Прочитана?", false)
+            };
+        }
+        /// <summary>Редактирование книги.</summary>
+        private static Book EditBook(Book b)
+        {
+            var t = ReadString($"Название ({b.Title}): ", true);
+            var a = ReadTextNoDigits($"Автор ({b.Author}): ", true);
+            var g = ReadTextNoDigits($"Жанр ({b.Genre}): ", true);
+            b.Title = string.IsNullOrWhiteSpace(t) ? b.Title : t;
+            b.Author = string.IsNullOrWhiteSpace(a) ? b.Author : a;
+            b.Genre = string.IsNullOrWhiteSpace(g) ? b.Genre : g;
+            b.Year = ReadInt("Год: ", 0, 3000);
+            b.Pages = ReadInt("Страниц: ", 1, null);
+            b.IsRead = ReadYesNo($"Прочитана сейчас {(b.IsRead ? "да" : "нет")}?", b.IsRead);
+            return b;
+        }
     }
-
-    Console.WriteLine();
-}
-
-// -------------------- ВАЛИДАЦИЯ/ХЕЛПЕРЫ --------------------
-
-static int ReadMenuChoice(int min, int max)
-{
-    while (true)
-    {
-        Console.Write("Выбор: ");
-        var s = Console.ReadLine();
-        if (int.TryParse(s, out int k) && k >= min && k <= max) return k;
-        Console.WriteLine($"Введите число от {min} до {max}.");
-    }
-}
-
-static int ReadInt(string prompt, int? min = null, int? max = null)
-{
-    while (true)
-    {
-        Console.Write(prompt);
-        var s = Console.ReadLine();
-        if (int.TryParse(s, out int v) &&
-            (!min.HasValue || v >= min.Value) &&
-            (!max.HasValue || v <= max.Value))
-            return v;
-        Console.WriteLine($"Введите целое число{(min.HasValue || max.HasValue ? $" в диапазоне [{min ?? int.MinValue}; {max ?? int.MaxValue}]" : "")}.");
-    }
-}
-
-static int ReadOptionalInt(string prompt, int current, int? min = null, int? max = null)
-{
-    while (true)
-    {
-        Console.Write($"{prompt} ({current}): ");
-        var s = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(s)) return current; // оставить как есть
-        if (int.TryParse(s, out int v) &&
-            (!min.HasValue || v >= min.Value) &&
-            (!max.HasValue || v <= max.Value))
-            return v;
-        Console.WriteLine($"Введите целое число{(min.HasValue || max.HasValue ? $" в диапазоне [{min ?? int.MinValue}; {max ?? int.MaxValue}]" : "")} или оставьте пусто.");
-    }
-}
-
-static string ReadString(string prompt, bool allowEmpty = false)
-{
-    while (true)
-    {
-        Console.Write(prompt);
-        var s = Console.ReadLine() ?? "";
-        if (allowEmpty || !string.IsNullOrWhiteSpace(s)) return s.Trim();
-        Console.WriteLine("Поле не может быть пустым.");
-    }
-}
-
-static string ReadTextNoDigits(string prompt, bool allowEmpty = false)
-{
-    while (true)
-    {
-        var s = ReadString(prompt, allowEmpty);
-        if (allowEmpty && string.IsNullOrWhiteSpace(s)) return "";
-        // защита: не число целиком и без цифр внутри
-        if (!int.TryParse(s, out _) && !s.Any(char.IsDigit)) return s;
-        Console.WriteLine("Текст не должен содержать цифр и не должен быть чисто числом.");
-    }
-}
-
-static bool ReadYesNo(string prompt, bool? defaultValue = null)
-{
-    while (true)
-    {
-        Console.Write($"{prompt}{(defaultValue is null ? " (y/n): " : defaultValue.Value ? " (Y/n): " : " (y/N): ")}");
-        var s = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
-
-        if (string.IsNullOrEmpty(s) && defaultValue is not null) return defaultValue.Value;
-        if (s == "y" || s == "д") return true;
-        if (s == "n" || s == "н") return false;
-
-        Console.WriteLine("Введите y (да) или n (нет).");
-    }
-}
-
-static int ReadExistingId(IBookLogic logic, string prompt)
-{
-    while (true)
-    {
-        var id = ReadInt(prompt, min: 1);
-        if (logic.Read(id) is not null) return id;
-        Console.WriteLine("Книга с таким Id не найдена. Повторите ввод.");
-    }
-}
-
-// -------------------- CRUD-ВВОД --------------------
-
-static Book InputBook()
-{
-    var title = ReadString("Название: ");
-    var author = ReadTextNoDigits("Автор: ");
-    var genre = ReadTextNoDigits("Жанр: ", allowEmpty: true);
-    var year = ReadInt("Год (0..3000): ", 0, 3000);
-    var pages = ReadInt("Страниц (>0): ", 1, null);
-    var isRead = ReadYesNo("Прочитана?", defaultValue: false);
-
-    return new Book { Title = title, Author = author, Genre = genre, Year = year, Pages = pages, IsRead = isRead };
-}
-
-static Book EditBook(Book b)
-{
-    var title = ReadString($"Название ({b.Title}): ", allowEmpty: true);
-    var author = ReadTextNoDigits($"Автор ({b.Author}): ", allowEmpty: true);
-    var genre = ReadTextNoDigits($"Жанр ({b.Genre}): ", allowEmpty: true);
-    var year = ReadOptionalInt("Год", b.Year, 0, 3000);
-    var pages = ReadOptionalInt("Страниц", b.Pages, 1, null);
-    var isRead = ReadYesNo($"Прочитана сейчас {(b.IsRead ? "да" : "нет")}?", defaultValue: b.IsRead);
-
-    if (!string.IsNullOrWhiteSpace(title)) b.Title = title;
-    if (!string.IsNullOrWhiteSpace(author)) b.Author = author;
-    if (!string.IsNullOrWhiteSpace(genre)) b.Genre = genre;
-    b.Year = year;
-    b.Pages = pages;
-    b.IsRead = isRead;
-
-    return b;
 }
